@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb'
 import { z } from 'zod'
+import { Couple } from './couple'
 
 export interface CoupleMember {
   _id: ObjectId

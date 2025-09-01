@@ -1,18 +1,18 @@
 import { ObjectId, Collection } from 'mongodb'
 import { getDatabase } from '../connection'
-import { 
-  User, 
-  UserDocument, 
-  CreateUserInput, 
+import {
+  User,
+  UserDocument,
+  CreateUserInput,
   UpdateUserInput,
-  COLLECTION_NAME 
-} from '../models/user'
+  USER_COLLECTION,
+} from '../index'
 
 export class UserService {
   private collection: Collection<UserDocument>
 
   constructor() {
-    this.collection = getDatabase().collection(COLLECTION_NAME)
+    this.collection = getDatabase().collection(USER_COLLECTION)
   }
 
   async findByFirebaseUid(firebaseUid: string): Promise<User | null> {
@@ -30,7 +30,7 @@ export class UserService {
     return user as User | null
   }
 
-  async create( CreateUserInput): Promise<User> {
+  async create(data: CreateUserInput): Promise<User> {
     const now = new Date()
     const userDoc: UserDocument = {
       ...data,
@@ -39,12 +39,12 @@ export class UserService {
     }
 
     const result = await this.collection.insertOne(userDoc)
-    
+
     const user = await this.collection.findOne({ _id: result.insertedId })
     return user as User
   }
 
-  async update(id: string,  UpdateUserInput): Promise<User | null> {
+  async update(id: string, data: UpdateUserInput): Promise<User | null> {
     const updateDoc = {
       ...data,
       updated_at: new Date(),
@@ -63,9 +63,12 @@ export class UserService {
     return result.deletedCount > 0
   }
 
-  async findOrCreate(firebaseUid: string, userData: Omit<CreateUserInput, 'firebaseUid'>): Promise<User> {
+  async findOrCreate(
+    firebaseUid: string,
+    userData: Omit<CreateUserInput, 'firebaseUid'>
+  ): Promise<User> {
     let user = await this.findByFirebaseUid(firebaseUid)
-    
+
     if (!user) {
       user = await this.create({
         firebaseUid,

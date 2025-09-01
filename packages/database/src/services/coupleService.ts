@@ -189,7 +189,7 @@ export class CoupleService {
     return result[0] as CoupleWithMembers | null
   }
 
-  async createCouple( CreateCoupleInput, userId: string): Promise<Couple> {
+  async createCouple( data: CreateCoupleInput, userId: string): Promise<Couple> {
     const now = new Date()
     const userObjectId = new ObjectId(userId)
     
@@ -227,7 +227,7 @@ export class CoupleService {
     return couple as Couple
   }
 
-  async updateCouple(coupleId: string,  UpdateCoupleInput, userId: string): Promise<Couple | null> {
+  async updateCouple(coupleId: string, data: UpdateCoupleInput, userId: string): Promise<Couple | null> {
     const coupleObjectId = new ObjectId(coupleId)
     const userObjectId = new ObjectId(userId)
 
