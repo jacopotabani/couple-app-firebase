@@ -1,10 +1,5 @@
-import { config } from 'dotenv'
-import { resolve } from 'path'
 import { createServer } from './server'
 import { connectDatabase, createAllIndexes } from '@couple-app/database'
-
-// Load environment variables
-config({ path: resolve(__dirname, '../.env.local') })
 
 const PORT = process.env.PORT || 4000
 

@@ -43,6 +43,18 @@ cd packages/[package-name] && yarn build
 ```
 
 ## Environment Setup
-- Requires `.env.local` file in root for environment variables
+- Single `.env.local` file in project root contains all environment variables
+- Apps use `dotenv-cli` with `with-env` script pattern to load root environment
 - Firebase configuration needed for authentication
 - MongoDB connection string required for database operations
+
+### Environment Loading Pattern
+Each app uses the `with-env` script pattern:
+```json
+{
+  "scripts": {
+    "with-env": "dotenv -e ../../.env.local -c --",
+    "dev": "yarn with-env tsx watch src/index.ts"
+  }
+}
+```
