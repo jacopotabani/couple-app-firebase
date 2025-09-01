@@ -12,3 +12,5 @@ export { PublicRoute, type PublicRouteProps } from './components/PublicRoute'
 
 // Export services
 export { UserSyncService } from './services/userSyncService'
+// Export profile hooks
+export { useProfile, type UseProfileReturn } from './hooks/useProfile'
