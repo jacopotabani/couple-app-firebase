@@ -1,10 +1,10 @@
 import { config } from 'dotenv'
 import { resolve } from 'path'
 import { createServer } from './server'
-import { createAllIndexes } from '@couple-app/database'
+import { connectDatabase, createAllIndexes } from '@couple-app/database'
 
 // Load environment variables
-config({ path: resolve(__dirname, '../../../.env.local') })
+config({ path: resolve(__dirname, '../.env.local') })
 
 const PORT = process.env.PORT || 4000
 
@@ -30,13 +30,20 @@ const startServer = async () => {
       )
     }
 
-    // Create and configure Express app
-    const app = createServer()
+    // Initialize and connect to database
+    console.log('📊 Connecting to database...')
+    await connectDatabase({
+      connectionString: process.env.MONGODB_URI!,
+      databaseName: 'couple-app'
+    })
 
     // Create database indexes
-    console.log('📊 Creating database indexes...')
+    console.log('🔧 Creating database indexes...')
     await createAllIndexes()
-    console.log('✅ Database indexes created')
+    console.log('✅ Database setup completed')
+
+    // Create and configure Express app
+    const app = createServer()
 
     // Start server
     const server = app.listen(PORT, () => {
