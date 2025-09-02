@@ -1,4 +1,4 @@
-import { initializeApp, getApps, cert } from 'firebase-admin/app'
+import { initializeApp, getApps, cert, ServiceAccount } from 'firebase-admin/app'
 import { getAuth } from 'firebase-admin/auth'
 
 // Validate required Firebase environment variables
@@ -38,7 +38,7 @@ const firebaseConfig = {
 // Initialize Firebase Admin SDK
 export const firebaseAdmin = getApps().length === 0 
   ? initializeApp({
-      credential: cert(firebaseConfig),
+      credential: cert(firebaseConfig as ServiceAccount),
     })
   : getApps()[0]
 
