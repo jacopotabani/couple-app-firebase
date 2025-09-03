@@ -2,7 +2,8 @@
   "name": "couple-app-firebase",
   "private": true,
   "workspaces": [
-    "apps/*",
+    "apps/api",
+    "apps/next",
     "packages/*"
   ],
   "packageManager": "yarn@4.0.2",

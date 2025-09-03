@@ -1,0 +1,34 @@
+{
+  "name": "@couple-app/next",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "with-env": "dotenv -e ../../.env.local -c --",
+    "dev": "yarn with-env next dev -p 3000",
+    "build": "yarn with-env next build",
+    "start": "yarn with-env next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tamagui/animations-react-native": "^1.87.0",
+    "@tamagui/config": "^1.87.0",
+    "@tamagui/core": "^1.87.0",
+    "@tamagui/next-plugin": "^1.87.0",
+    "@tamagui/next-theme": "^1.87.0",
+    "dotenv-cli": "^7.4.2",
+    "next": "^15.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native-web": "^0.19.12",
+    "tamagui": "^1.87.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
+    "typescript": "^5.3.3"
+  }
+}

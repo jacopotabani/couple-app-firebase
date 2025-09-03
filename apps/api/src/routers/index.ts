@@ -1,6 +1,8 @@
 import { router, publicProcedure } from '../trpc/trpc'
+import { authRouter } from './auth'
 
 export const appRouter = router({
+  // Main health check
   health: publicProcedure.query(() => {
     return {
       status: 'ok',
@@ -14,6 +16,9 @@ export const appRouter = router({
       message: 'Hello from tRPC!',
     }
   }),
+
+  // Sub-routers
+  auth: authRouter,
 })
 
 export type AppRouter = typeof appRouter

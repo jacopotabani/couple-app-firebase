@@ -1,23 +1,43 @@
-// Export base components
-export { Button, type ButtonProps } from './components/Button'
-export { Input, type InputProps } from './components/Input'
-export { Card, type CardProps } from './components/Card'
+// Tamagui configuration
+export { default as tamaguiConfig } from './tamagui.config'
+export type { AppConfig } from './tamagui.config'
 
-// Export auth components
-export { LoginForm, type LoginFormProps } from './components/auth/LoginForm'
-export { SignUpForm, type SignUpFormProps } from './components/auth/SignUpForm'
-export { SocialAuthButtons, type SocialAuthButtonsProps } from './components/auth/SocialAuthButtons'
-export { EmailVerificationCard, type EmailVerificationCardProps } from './components/auth/EmailVerificationCard'
+// Form components
+export * from './components/forms/CoupleForm'
+export * from './components/forms/AuthForm'
 
-// Export config
-export { default as tamaguiConfig } from './config/tamagui.config'
-export { tokens } from './themes/tokens'
+// List components
+export * from './components/lists/CoupleCard'
 
-// Export avatar component
-export { Avatar, type AvatarProps } from './components/Avatar'
+// Modal components
+export * from './components/modals/InviteModal'
 
-// Export profile components
-export { ProfileView, type ProfileViewProps } from './components/profile/ProfileView'
-export { ProfileEditForm, type ProfileEditFormProps } from './components/profile/ProfileEditForm'
-export { DeleteAccountCard, type DeleteAccountCardProps } from './components/profile/DeleteAccountCard'
-export { ProfileScreen, type ProfileScreenProps } from './components/profile/ProfileScreen'
+// Layout components
+export * from './components/layout/Screen'
+
+// Re-export Tamagui components for convenience
+export {
+  TamaguiProvider,
+  Theme,
+  YStack,
+  XStack,
+  Button,
+  Input,
+  Card,
+  H1, H2, H3, H4,
+  Paragraph,
+  Avatar,
+  Separator,
+  Dialog,
+  Sheet,
+  Select,
+  Label,
+  TextArea,
+  ScrollView
+} from 'tamagui'
+
+// Legacy exports (keeping for backward compatibility)
+export { Button as LegacyButton, type ButtonProps } from './components/Button'
+export { Input as LegacyInput, type InputProps } from './components/Input'
+export { Card as LegacyCard, type CardProps } from './components/Card'
+export { Avatar as LegacyAvatar, type AvatarProps } from './components/Avatar'
