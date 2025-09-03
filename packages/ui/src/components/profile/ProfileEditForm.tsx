@@ -9,7 +9,7 @@ import { useProfile } from '@couple-app/app'
 
 export interface ProfileEditFormProps {
   user: User
-  onSave?: ( UpdateUserInput) => void
+  onSave?: (data: UpdateUserInput) => void
   onCancel?: () => void
   onAvatarChange?: (file: File | Blob) => void
 }

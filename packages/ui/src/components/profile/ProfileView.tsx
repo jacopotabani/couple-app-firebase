@@ -4,7 +4,7 @@ import { User } from '@couple-app/database'
 import { Card } from '../Card'
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
-import { Edit, Mail, Calendar } from '@tamagui/lucide-icons'
+import { Edit3 as Edit, Mail, Calendar } from '@tamagui/lucide-icons'
 
 export interface ProfileViewProps {
   user: User

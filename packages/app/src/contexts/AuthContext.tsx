@@ -2,7 +2,8 @@ import React, { createContext, useContext, useEffect, useState, ReactNode } from
 import { 
   AuthUser, 
   onAuthStateChanged, 
-  getCurrentUser 
+  getCurrentUser,
+  auth
 } from '@couple-app/firebase'
 import { User } from '@couple-app/database'
 
@@ -75,7 +76,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
 
   // Listen to Firebase auth state changes
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(async (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setFirebaseUser(firebaseUser)
       
       if (firebaseUser) {

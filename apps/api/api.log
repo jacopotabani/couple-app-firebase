@@ -1,0 +1,16 @@
+yarn run v1.22.19
+$ yarn with-env tsx watch src/index.ts
+$ dotenv -e ../../.env.local -c -- tsx watch src/index.ts
+🚀 Starting Couple App API Server...
+📊 Connecting to database...
+✅ Connected to MongoDB: couple-app
+🔧 Creating database indexes...
+🔧 Creating database indexes...
+✅ User indexes created
+✅ Couple indexes created
+✅ Member indexes created
+🎉 All indexes created successfully!
+✅ Database setup completed
+🎉 Server running on http://localhost:4000
+🔗 tRPC API available at http://localhost:4000/trpc
+🏥 Health check at http://localhost:4000/health

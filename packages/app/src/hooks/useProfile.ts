@@ -9,7 +9,7 @@ export interface UseProfileReturn {
   isLoading: boolean
   
   // Profile operations
-  updateProfile: ( UpdateUserInput) => Promise<void>
+  updateProfile: (data: UpdateUserInput) => Promise<void>
   uploadUserAvatar: (file: File | Blob) => Promise<string>
   deleteAccount: () => Promise<void>
   
@@ -29,7 +29,7 @@ export const useProfile = (): UseProfileReturn => {
 
   const clearError = () => setError(null)
 
-  const updateProfile = async ( UpdateUserInput): Promise<void> => {
+  const updateProfile = async (data: UpdateUserInput): Promise<void> => {
     if (!user) {
       throw new Error('No user logged in')
     }

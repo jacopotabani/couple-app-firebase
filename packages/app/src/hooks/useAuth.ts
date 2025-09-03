@@ -23,8 +23,8 @@ export interface UseAuthReturn {
   isInitializing: boolean
   
   // Auth operations
-  signUp: ( SignUpData) => Promise<AuthUser>
-  signIn: ( SignInData) => Promise<AuthUser>
+  signUp: (data: SignUpData) => Promise<AuthUser>
+  signIn: (data: SignInData) => Promise<AuthUser>
   signInWithGoogle: () => Promise<AuthUser>
   signInWithApple: () => Promise<AuthUser>
   signOut: () => Promise<void>
@@ -56,7 +56,7 @@ export const useAuth = (): UseAuthReturn => {
 
   const clearError = () => setError(null)
 
-  const signUp = async ( SignUpData): Promise<AuthUser> => {
+  const signUp = async (data: SignUpData): Promise<AuthUser> => {
     if (!authMethods?.signUpWithEmail) {
       throw new Error('Auth methods not initialized')
     }
@@ -75,7 +75,7 @@ export const useAuth = (): UseAuthReturn => {
     }
   }
 
-  const signIn = async ( SignInData): Promise<AuthUser> => {
+  const signIn = async (data: SignInData): Promise<AuthUser> => {
     if (!authMethods?.signInWithEmail) {
       throw new Error('Auth methods not initialized')
     }

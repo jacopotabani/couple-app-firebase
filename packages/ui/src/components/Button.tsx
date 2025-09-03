@@ -1,7 +1,12 @@
 import React from 'react'
-import { Button as TamaguiButton, ButtonProps as TamaguiButtonProps, Spinner } from 'tamagui'
+import {
+  Button as TamaguiButton,
+  ButtonProps as TamaguiButtonProps,
+  Spinner,
+} from 'tamagui'
 
-export interface ButtonProps extends TamaguiButtonProps {
+export interface ButtonProps
+  extends Omit<TamaguiButtonProps, 'variant' | 'size'> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   isLoading?: boolean
@@ -84,7 +89,9 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || isLoading}
       borderRadius="$md"
       fontWeight="600"
-      icon={isLoading ? <Spinner size="small" color="currentColor" /> : props.icon}
+      icon={
+        isLoading ? <Spinner size="small" color="currentColor" /> : props.icon
+      }
     >
       {isLoading && loadingText ? loadingText : children}
     </TamaguiButton>

@@ -1,7 +1,8 @@
-import type { appRouter } from '../../apps/api/src/routers'
 import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
 
-export type AppRouter = typeof appRouter
+// TODO: Import this from the API when the build system allows it
+// For now, we'll define a placeholder type
+export type AppRouter = any
 
 export type RouterInputs = inferRouterInputs<AppRouter>
 export type RouterOutputs = inferRouterOutputs<AppRouter>

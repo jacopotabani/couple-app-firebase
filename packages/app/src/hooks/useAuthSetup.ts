@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { setAuthMethods } from './useAuth'
 
 export interface AuthSetupMethods {
-  signUpWithEmail: ( any) => Promise<any>
-  signInWithEmail: ( any) => Promise<any>
+  signUpWithEmail: (data: any) => Promise<any>
+  signInWithEmail: (data: any) => Promise<any>
   signInWithGoogle?: () => Promise<any>
   signInWithApple?: () => Promise<any>
   signOut: () => Promise<void>

@@ -28,7 +28,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
     setIsEditing(true)
   }
 
-  const handleSaveProfile = async (any) => {
+  const handleSaveProfile = async (data: any) => {
     try {
       await updateProfile(data)
       setIsEditing(false)

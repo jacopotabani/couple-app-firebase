@@ -99,6 +99,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
       await signUp({
         email,
         password,
+        name: name.trim(),
         displayName: name.trim(),
       })
       onSuccess?.()
